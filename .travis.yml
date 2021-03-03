@@ -9,6 +9,6 @@ cache:
 services:
   - postgresql
 before_script:
-      - psql -c 'db' -U postgres
+      - psql -c 'create database db;' -U postgres
 before_install:
   - chmod +x mvnw

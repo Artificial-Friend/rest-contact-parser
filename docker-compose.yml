@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  application:
+    image:  application:latest
+    container_name: application
+    expose:
+      - 8080
+    ports:
+      - 8080:8080

@@ -6,8 +6,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import contacts.parser.rest.model.Contact;
 import contacts.parser.rest.repository.ContactRepository;
-import java.util.LinkedList;
-import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -31,15 +29,11 @@ class HelloControllerTest {
 
     @BeforeAll
     public static void init(@Autowired ContactRepository contactRepository) {
-        List<Contact> contacts = new LinkedList<>();
-        contacts.add(new Contact("Bob"));
-        contacts.add(new Contact("Alice"));
-        contacts.add(new Contact("John"));
-        contacts.add(new Contact("Peter"));
-        contacts.add(new Contact("Parker"));
-        for (Contact contact : contacts) {
-            contactRepository.save(contact);
-        }
+        contactRepository.save(new Contact("Bob"));
+        contactRepository.save(new Contact("Alice"));
+        contactRepository.save(new Contact("John"));
+        contactRepository.save(new Contact("Peter"));
+        contactRepository.save(new Contact("Parker"));
     }
 
     @Test

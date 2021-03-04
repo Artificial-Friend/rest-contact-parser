@@ -11,8 +11,8 @@ Tests completed in internal H2 database with 5 hardcoded contact entities and ha
 2. Database:  
   - Download [PostgreSQL](https://www.postgresql.org/download/) 
   - In application file `application.properties` fill `user` and `password` fields. Create database `db` or change `spring.datasource.url` to your PostgreSQL database.
-5. Run application;
-6. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts names.
+3. Run application;
+4. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts names.
 
 ***
 #### Author: Monchakivskyi Oleksii

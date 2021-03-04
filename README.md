@@ -20,7 +20,9 @@ Tests completed in internal H2 database with 5 hardcoded contact entities and ha
 1.  Install [Docker Desktop](https://docs.docker.com/desktop/)
 1.  Run following commands in terminal from rest-contact-parser directory: 
   > mvn clean package
+
   > docker build ./ -t application
+
   > docker-compose up --build
 
 

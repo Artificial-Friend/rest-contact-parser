@@ -6,6 +6,7 @@ In this application you need to connect to a PostgreSQL database and pass a stri
 Tests completed in internal H2 database with 5 hardcoded contact entities and has no influence on production database.
 
 ***
+
 ## Running the Application
 1. Download and Install [JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 2. Database:  
@@ -13,6 +14,14 @@ Tests completed in internal H2 database with 5 hardcoded contact entities and ha
   - In application file `application.properties` fill `user` and `password` fields. Create database `db` or change `spring.datasource.url` to your PostgreSQL database.
 3. Run application;
 4. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts names.
+
+### OR
+
+1.  Install [Docker Desktop](https://docs.docker.com/desktop/)
+2.  Run next command in terminal from rest-contact-parser directory: 
+  > mvn clean package
+4.  Run next command in terminal from the main directory: 
+  > docker-compose up --build
 
 ***
 #### Author: Monchakivskyi Oleksii

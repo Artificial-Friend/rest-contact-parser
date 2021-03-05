@@ -37,7 +37,7 @@ class HelloControllerTest {
     }
 
     @Test
-    public void TwoValidRequests_Ok() throws Exception {
+    public void twoValidRequests_Ok() throws Exception {
         String firstExpectedJson = "[{\"id\":1,\"name\":\"Bob\"},"
                 + "{\"id\":3,\"name\":\"John\"}]";
         String firstResult = mockMvc.perform(get(TESTED_URL)
@@ -62,13 +62,28 @@ class HelloControllerTest {
     }
 
     @Test
-    public void ValidParameterNullValue_ThrowsException() throws Exception {
+    public void returnAllRequest_Ok() throws Exception {
+        String firstExpectedJson = "[{\"id\":1,\"name\":\"Bob\"},{\"id\":2,\"name\":\"Alice\"},"
+                + "{\"id\":3,\"name\":\"John\"},{\"id\":4,\"name\":\"Peter\"},"
+                + "{\"id\":5,\"name\":\"Parker\"}]";
+        String firstResult = mockMvc.perform(get(TESTED_URL)
+                .param("nameFilter", "returnAll")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content()
+                        .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andReturn().getResponse().getContentAsString();
+        Assertions.assertEquals(firstExpectedJson, firstResult);
+    }
+
+    @Test
+    public void validParameterNullValue_ThrowsException() throws Exception {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {mockMvc.perform(get(TESTED_URL)
                 .param("nameFilter", null));});
     }
 
     @Test
-    public void InvalidParameter_NotOk() throws Exception {
+    public void invalidParameter_NotOk() throws Exception {
         String expected = "Required String parameter 'nameFilter' is not present";
         String result = mockMvc.perform(get(TESTED_URL)
                 .param("invalidParameter", "dummyStringValue")

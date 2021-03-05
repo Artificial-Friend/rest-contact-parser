@@ -13,25 +13,24 @@ Tests completed in internal H2 database with 5 hardcoded contact entities and ha
   - Download [PostgreSQL](https://www.postgresql.org/download/)
   - In application file `application.properties` fill `user` and `password` fields. Create database `db` or change `spring.datasource.url` to your PostgreSQL database.
 3. Run application;
-4. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts names.
+4. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts name or special value `returnAll` to return all contacts.
 
 ### OR
 
 1.  Install [Docker Desktop](https://docs.docker.com/desktop/)
-2.  Run following commands in terminal from rest-contact-parser directory: 
+2. Database:
+  - Download [PostgreSQL](https://www.postgresql.org/download/)
+  - In application file `application.properties` fill `user` and `password` fields. Create database `db` or change `spring.datasource.url` to your PostgreSQL database.
+
+3.  Run following commands in terminal from rest-contact-parser directory: 
+
   > mvn clean package
 
   > docker build ./ -t application
 
-3. Database:
-  - Download [PostgreSQL](https://www.postgresql.org/download/)
-  - In application file `application.properties` fill `user` and `password` fields. Create database `db` or change `spring.datasource.url` to your PostgreSQL database.
-
-4. Run following command:
-
   > docker-compose up --build
 
-5. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts names.
+4. Send GET requests with parameter `nameFilter` and any regex value by which you need to filter contacts name or special value `returnAll` to return all contacts.
 
 ***
 #### Author: Monchakivskyi Oleksii

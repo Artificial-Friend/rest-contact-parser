@@ -14,7 +14,11 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public List<Contact> filterContactsByRegexFilter(String regex) {
-        return contactRepository.findAll().parallelStream()
+        List<Contact> allContacts = contactRepository.findAll();
+        if (regex.equals("returnAll")) {
+            return allContacts;
+        }
+        return allContacts.parallelStream()
                 .filter(e -> !e.getName().matches(regex))
                 .collect(Collectors.toList());
     }
